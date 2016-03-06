@@ -50,7 +50,7 @@ var vm = new Vue({
     }
   },
   created: function() {
-    $.getJSON('/jsons/items.json', function(dt) {
+    $.getJSON('jsons/items.json', function(dt) {
       dt.forEach(function(item) {
         var parsedDate = moment(item.date);
         var ymd = '';
