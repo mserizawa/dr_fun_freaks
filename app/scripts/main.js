@@ -25,16 +25,21 @@ var vm = new Vue({
       if (q === '') {
         this.filteredItems = [];
         return;
-      } else {
-        this.filteredItems = this.items.filter(function(item) {
+      }
+      var isTagSearch = q.indexOf('tag:') === 0;
+      this.filteredItems = this.items.filter(function(item) {
+        if (!isTagSearch) {
           if (item.title.toLowerCase().indexOf(q.toLowerCase()) !== -1) {
             return true;
           }
           if (item.tags && item.tags.join('|').toLowerCase().indexOf(q.toLowerCase()) !== -1) {
             return true;
           }
-        });
-      }
+        } else {
+          return item.tags && item.tags.indexOf(q.substr(4)) !== -1;
+        }
+        return false;
+      });
     },
     showModal: function(item) {
       this.selectedItem = item;
@@ -42,6 +47,10 @@ var vm = new Vue({
     },
     getItemAtRandom: function() {
       return this.items[Math.floor(Math.random() * this.items.length)];
+    },
+    searchByTag: function(tag) {
+      this.searchQuery = 'tag:' + tag;
+      this.filterByQuery();
     }
   },
   computed: {

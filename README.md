@@ -24,7 +24,7 @@ TBD
 - [ ] Automate deployments
 - [ ] Add Favicon
 - [x] Implement Tags
-- [ ] Implement Only Tag Search Function
+- [x] Implement Only Tag Search Function
 - [ ] Implement infinite scroll
 - [ ] Comlete labels
 - [ ] Add more tags

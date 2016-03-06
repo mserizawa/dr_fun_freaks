@@ -108,10 +108,13 @@ body {
 }
 
 .item-tags {
+  margin-bottom: 8px;
   p {
     margin-bottom: 6px;
   }
-  margin-bottom: 8px;
+  a {
+    text-decoration: none;
+  }
   span:nth-child(n+3) {
     margin-left: 6px;
   }

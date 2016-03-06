@@ -95,7 +95,9 @@
             <img class="img-responsive" v-bind:src="selectedItem.imageURL">
             <div class="item-tags" v-if="selectedItem.tags">
               <p><b>Tags</b></p>
-              <span class="label label-default" v-for="tag in selectedItem.tags">{{ tag }}</span>
+              <a href="#" v-for="tag in selectedItem.tags" v-on:click="searchByTag(tag)" data-dismiss="modal">
+                <span class="label label-default">{{ tag }}</span>
+              </a>
             </div>
             <p><b>Image URL</b></p>
             <pre contenteditable="true"><code>{{ selectedItem.imageURL }}</code></pre>
