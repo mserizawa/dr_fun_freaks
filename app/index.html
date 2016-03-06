@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dr.Fun Freaks</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet" type="text/css">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body id="app">
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="container">
+      <div class="header">
+        <h1>Dr.Fun Freaks</h1>
+        <p>Dr.Fun makes you geek.</p>
+      </div>
+
+      <div class="row examples">
+        <div class="col-xs-offset-3 col-xs-2">
+          <img class="img-circle img-responsive" width="200px" src="images/ex1.png">
+        </div>
+        <div class="col-xs-2">
+          <img class="img-circle img-responsive" width="200px" src="images/ex2.png">
+        </div>
+        <div class="col-xs-2">
+          <img class="img-circle img-responsive" width="200px" src="images/ex3.png">
+        </div>
+      </div>
+
+      <div class="searchbox">
+        <div class="input-query">
+          <input type="text" class="form-control" v-model="searchQuery" v-on:keyup="filterByQuery" placeholder="">
+          <span class="glyphicon glyphicon-search"></span>
+        </div>
+        <a href="#" v-on:click="showModal(getItemAtRandom())"><p>or get random</p></a>
+      </div>
+
+      <div class="searchresults">
+        <div class="row" v-if="searchQuery">
+          <div class="col-xs-12" style="text-align: right;">
+            <span>{{ resultLengthWithCommas }}</span> items found for <span class="text-success">{{ searchQuery }}<span>
+          </div>
+        </div>
+
+        <div class="row result-row" v-for="chunk in chunk(filteredItems.slice(0, (itemOffset + 1) * 10), 3)">
+          <template v-for="item in chunk">
+            <div class="col-xs-4">
+              <div class="result" v-on:click="showModal(item)">
+                <img class="img-responsive" v-bind:src="item.thumbURL">
+                <div class="result-title">{{ item.title }}</div>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="row btn-more" v-show="hasMore">
+          <div class="col-xs-6 col-xs-offset-3">
+            <button class="btn btn-default btn-block" v-on:click="itemOffset += 1">more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>2016 &copy; <a href="https://twitter.com/masato_serizawa" target="_blank">@mserizawa</a></p>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img class="img-responsive" v-bind:src="selectedItem.imageURL">
+            <p><b>Image URL</b></p>
+            <pre contenteditable="true"><code>{{ selectedItem.imageURL }}</code></pre>
+            <p><b>Markdown</b></p>
+            <pre contenteditable="true"><code>![]({{ selectedItem.imageURL }})</code></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/vue/dist/vue.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
