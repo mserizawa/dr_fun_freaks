@@ -1,3 +1,5 @@
+/*globals $:false, Vue:false, moment:false */
+'use strict';
 var vm = new Vue({
   el: '#app',
   data: {
@@ -12,8 +14,9 @@ var vm = new Vue({
       var copied = array.concat();
       var chunked = [];
 
-      while (copied.length > 0)
+      while (copied.length > 0) {
         chunked.push(copied.splice(0, size));
+      }
       return chunked;
     },
     filterByQuery: function() {
@@ -52,15 +55,15 @@ var vm = new Vue({
         var parsedDate = moment(item.date);
         var ymd = '';
         if (parsedDate.year() < 2000) {
-          ymd = parsedDate.format('YYMMDD')
+          ymd = parsedDate.format('YYMMDD');
         } else {
-          ymd = parsedDate.format('YYYYMMDD')
+          ymd = parsedDate.format('YYYYMMDD');
         }
-        var ym = ymd.substr(0, ymd.length - 2)
-        item.thumbURL = 'http://www.ibiblio.org/Dave/Dr-Fun/inline/thumbs/tn' + ymd + '.jpg'
-        item.imageURL = 'http://www.ibiblio.org/Dave/Dr-Fun/df' + ym + '/df' + ymd + '.jpg'
+        var ym = ymd.substr(0, ymd.length - 2);
+        item.thumbURL = 'http://www.ibiblio.org/Dave/Dr-Fun/inline/thumbs/tn' + ymd + '.jpg';
+        item.imageURL = 'http://www.ibiblio.org/Dave/Dr-Fun/df' + ym + '/df' + ymd + '.jpg';
       });
-      vm.$set('items', dt)
+      vm.$set('items', dt);
     });
   }
 });

@@ -17,7 +17,8 @@ TBD
 
 ## TODO
 
-- [ ] Fix Tests
+- [x] Fix JSLint
+- [ ] Add Favicon
 - [ ] Implement Tag Search Function
 - [ ] Implement infinite scroll
 - [ ] Add tags and labels
