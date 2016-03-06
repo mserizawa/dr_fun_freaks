@@ -30,6 +30,9 @@ var vm = new Vue({
           if (item.title.toLowerCase().indexOf(q.toLowerCase()) !== -1) {
             return true;
           }
+          if (item.tags && item.tags.join('|').toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+            return true;
+          }
         });
       }
     },

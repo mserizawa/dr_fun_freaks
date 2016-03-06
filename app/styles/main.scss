@@ -107,6 +107,16 @@ body {
   }
 }
 
+.item-tags {
+  p {
+    margin-bottom: 6px;
+  }
+  margin-bottom: 8px;
+  span:nth-child(n+3) {
+    margin-left: 6px;
+  }
+}
+
 .footer {
   // position: relative;
   // bottom: 0;

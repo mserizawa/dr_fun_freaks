@@ -23,6 +23,8 @@ TBD
 - [ ] Improve UI/UX
 - [ ] Automate deployments
 - [ ] Add Favicon
-- [ ] Implement Tag Search Function
+- [x] Implement Tags
+- [ ] Implement Only Tag Search Function
 - [ ] Implement infinite scroll
-- [ ] Add tags and labels
+- [ ] Comlete labels
+- [ ] Add more tags
