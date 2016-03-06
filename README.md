@@ -18,6 +18,9 @@ TBD
 ## TODO
 
 - [x] Fix JSLint
+- [x] Deploy to github pages
+- [ ] Improve UI/UX
+- [ ] Automate deployments
 - [ ] Add Favicon
 - [ ] Implement Tag Search Function
 - [ ] Implement infinite scroll
