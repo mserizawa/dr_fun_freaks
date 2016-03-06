@@ -65,6 +65,7 @@ var vm = new Vue({
         var ym = ymd.substr(0, ymd.length - 2);
         item.thumbURL = 'http://www.ibiblio.org/Dave/Dr-Fun/inline/thumbs/tn' + ymd + '.jpg';
         item.imageURL = 'http://www.ibiblio.org/Dave/Dr-Fun/df' + ym + '/df' + ymd + '.jpg';
+        item.fullYMD = parsedDate.format('YYYYMMDD');
       });
       vm.$set('items', dt);
     });
