@@ -79,11 +79,10 @@ gulp.task('fonts', () => {
     .pipe(gulp.dest('dist/fonts'));
 });
 
-var concat_json = require('gulp-concat-json');
 gulp.task('yamls', () => {
   return gulp.src('yamls/*.yml')
     .pipe($.yaml())
-    .pipe(concat_json('items.json'))
+    .pipe($.concatJson('items.json'))
     .pipe(gulp.dest('.tmp/jsons'))
     .pipe(gulp.dest('dist/jsons'));
 });
