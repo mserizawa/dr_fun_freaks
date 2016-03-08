@@ -46,5 +46,5 @@ Please create pull requests or issues! :beers:
 - [x] Implement Tags
 - [x] Implement Only Tag Search Function
 - [ ] Implement infinite scroll
-- [ ] Comlete labels
+- [ ] Complete labels
 - [ ] Add more tags
