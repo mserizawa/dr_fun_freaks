@@ -1,7 +1,6 @@
 # Dr.Fun Freaks
 
 * Search engine for [Dr.Fun cartoons](http://www.ibiblio.org/Dave/).
-* This repository is deployed at [GitHub Pages](http://mserizawa.github.io/dr-fun-freaks/).
 
 ## How to start
 
